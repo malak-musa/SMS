@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="form.component.css">
+<div class='container'> 
+    <form #newUserForm="ngForm" (ngSubmit)="onSubmit(newUserForm)">
+
+        <h1>School Management System</h1>
+        
+        <!--Student Name-->
+        <div *ngIf="!pickedName.valid && pickedName.touched">Student Name
+        <input type="text" required maxlength="25" [(ngModel)]="student-name" name="student-name" #pickedName="ngModel">
+        </div>
+
+        <!--Student ID-->
+        <div *ngIf="!userEmail.valid && userEmail.touched">Studen ID
+        <input type="id" required [(ngModel)]="studen-id" name="studen-id" #userEmail="ngModel">
+        </div>
+    
+        <!--Student date of birth-->
+        <div *ngIf="!userEmail.valid && userEmail.touched">Student date of birth
+        <input type="date" [(ngModel)]="birth-date" name="birth-date">
+        </div>
+    
+        <!--Student gpa-->
+        <div *ngIf="!userPassword.valid && userPassword.touched">Student GPA
+        <input type="number" required [(ngModel)]="student-gpa" name="student-gpa" #userPassword="ngModel">
+        </div>
+
+        <button type="submit" [disabled]="!newUserForm.form.valid">submit</button>
+        <button type="button" (click)="newUserForm.reset()">delete</button>
+    
+    </form>
+</div>
